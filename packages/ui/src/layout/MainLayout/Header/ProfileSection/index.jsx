@@ -40,7 +40,7 @@ import AboutDialog from '@/ui-component/dialog/AboutDialog'
 import Transitions from '@/ui-component/extended/Transitions'
 
 // assets
-import { IconFileExport, IconFileUpload, IconInfoCircle, IconLogout, IconSettings, IconX } from '@tabler/icons-react'
+import { IconFileExport, IconFileUpload, IconLogout, IconSettings, IconX } from '@tabler/icons-react'
 import './index.css'
 import ExportingGIF from '@/assets/images/Exporting.gif'
 
@@ -52,12 +52,12 @@ import useApi from '@/hooks/useApi'
 import { getErrorMessage } from '@/utils/errorHandler'
 import { useNavigate } from 'react-router-dom'
 
-const dataToExport = ['Chatflows', 'Agentflows', 'Tools', 'Variables', 'Assistants']
+const dataToExport = ['Chatbots', 'Agent Squad', 'Tools', 'Variables', 'Agents']
 
 const ExportDialog = ({ show, onCancel, onExport }) => {
     const portalElement = document.getElementById('portal')
 
-    const [selectedData, setSelectedData] = useState(['Chatflows', 'Agentflows', 'Tools', 'Variables', 'Assistants'])
+    const [selectedData, setSelectedData] = useState(['Chatbots', 'Agent Squad', 'Tools', 'Variables', 'Agents'])
     const [isExporting, setIsExporting] = useState(false)
 
     useEffect(() => {
@@ -243,11 +243,11 @@ const ProfileSection = ({ username, handleLogout }) => {
 
     const onExport = (data) => {
         const body = {}
-        if (data.includes('Chatflows')) body.chatflow = true
-        if (data.includes('Agentflows')) body.agentflow = true
+        if (data.includes('Chatbots')) body.chatflow = true
+        if (data.includes('Agent Squad')) body.agentflow = true
         if (data.includes('Tools')) body.tool = true
         if (data.includes('Variables')) body.variable = true
-        if (data.includes('Assistants')) body.assistant = true
+        if (data.includes('Agents')) body.assistant = true
 
         exportAllApi.request(body)
     }
@@ -323,11 +323,11 @@ const ProfileSection = ({ username, handleLogout }) => {
                         ...theme.typography.mediumAvatar,
                         transition: 'all .2s ease-in-out',
                         background: theme.palette.secondary.light,
-                        color: theme.palette.secondary.dark,
-                        '&:hover': {
-                            background: theme.palette.secondary.dark,
-                            color: theme.palette.secondary.light
-                        }
+                        color: theme.palette.secondary.dark
+                        // '&:hover': {
+                        //     background: theme.palette.secondary.dark,
+                        //     color: theme.palette.secondary.light
+                        // }
                     }}
                     onClick={handleToggle}
                     color='inherit'
@@ -407,7 +407,7 @@ const ProfileSection = ({ username, handleLogout }) => {
                                                     <ListItemText primary={<Typography variant='body2'>Import</Typography>} />
                                                 </ListItemButton>
                                                 <input ref={inputRef} type='file' hidden onChange={fileChange} accept='.json' />
-                                                <ListItemButton
+                                                {/* <ListItemButton
                                                     sx={{ borderRadius: `${customization.borderRadius}px` }}
                                                     onClick={() => {
                                                         setOpen(false)
@@ -418,7 +418,7 @@ const ProfileSection = ({ username, handleLogout }) => {
                                                         <IconInfoCircle stroke={1.5} size='1.3rem' />
                                                     </ListItemIcon>
                                                     <ListItemText primary={<Typography variant='body2'>About Flowise</Typography>} />
-                                                </ListItemButton>
+                                                </ListItemButton> */}
                                                 {localStorage.getItem('username') && localStorage.getItem('password') && (
                                                     <ListItemButton
                                                         sx={{ borderRadius: `${customization.borderRadius}px` }}

@@ -459,91 +459,78 @@ const ShareChatbot = ({ isSessionMemory, isAgentCanvas }) => {
                     />
                 </div>
             </Stack>
+            {textField(title, 'title', 'Title', 'string', 'Bibha Assistant')}
+            {textField(
+                titleAvatarSrc,
+                'titleAvatarSrc',
+                'Title Avatar Link',
+                'string',
+                `https://bibha-logo.s3.ap-south-1.amazonaws.com/bibha_logo_dark.png`
+            )}
+            {textField(welcomeMessage, 'welcomeMessage', 'Welcome Message', 'string', 'Hello! This is custom welcome message')}
+            {textField(errorMessage, 'errorMessage', 'Error Message', 'string', 'This is custom error message')}
+            {colorField(backgroundColor, 'backgroundColor', 'Background Color')}
+            {textField(fontSize, 'fontSize', 'Font Size', 'number')}
+            {colorField(poweredByTextColor, 'poweredByTextColor', 'PoweredBy TextColor')}
+            {isAgentCanvas && booleanField(showAgentMessages, 'showAgentMessages', 'Show Agent Reasoning')}
 
-            <Card sx={{ borderColor: theme.palette.primary[200] + 75, p: 3, mt: 2 }} variant='outlined'>
-                <Stack sx={{ mt: 1, mb: 2, alignItems: 'center' }} direction='row' spacing={2}>
-                    <Typography variant='h4'>Title Settings</Typography>
-                </Stack>
-                {textField(title, 'title', 'Title', 'string', 'Flowise Assistant')}
-                {textField(
-                    titleAvatarSrc,
-                    'titleAvatarSrc',
-                    'Title Avatar Link',
-                    'string',
-                    `https://raw.githubusercontent.com/FlowiseAI/Flowise/main/assets/FloWiseAI_dark.png`
-                )}
-                {colorField(titleBackgroundColor, 'titleBackgroundColor', 'Title Background Color')}
-                {colorField(titleTextColor, 'titleTextColor', 'Title TextColor')}
-            </Card>
+            {/*BOT Message*/}
+            <Typography variant='h4' sx={{ mb: 1, mt: 2 }}>
+                Bot Message
+            </Typography>
+            {colorField(botMessageBackgroundColor, 'botMessageBackgroundColor', 'Background Color')}
+            {colorField(botMessageTextColor, 'botMessageTextColor', 'Text Color')}
+            {textField(
+                botMessageAvatarSrc,
+                'botMessageAvatarSrc',
+                'Avatar Link',
+                'string',
+                `https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/parroticon.png`
+            )}
+            {booleanField(botMessageShowAvatar, 'botMessageShowAvatar', 'Show Avatar')}
 
-            <Card sx={{ borderColor: theme.palette.primary[200] + 75, p: 3, mt: 2 }} variant='outlined'>
-                <Stack sx={{ mt: 1, mb: 2, alignItems: 'center' }} direction='row' spacing={2}>
-                    <Typography variant='h4'>General Settings</Typography>
-                </Stack>
-                {textField(welcomeMessage, 'welcomeMessage', 'Welcome Message', 'string', 'Hello! This is custom welcome message')}
-                {textField(errorMessage, 'errorMessage', 'Error Message', 'string', 'This is custom error message')}
-                {colorField(backgroundColor, 'backgroundColor', 'Background Color')}
-                {textField(fontSize, 'fontSize', 'Font Size', 'number')}
-                {colorField(poweredByTextColor, 'poweredByTextColor', 'PoweredBy TextColor')}
-                {isAgentCanvas && booleanField(showAgentMessages, 'showAgentMessages', 'Show agent reasonings when using Agentflow')}
+            {/*USER Message*/}
+            <Typography variant='h4' sx={{ mb: 1, mt: 2 }}>
+                User Message
+            </Typography>
+            {colorField(userMessageBackgroundColor, 'userMessageBackgroundColor', 'Background Color')}
+            {colorField(userMessageTextColor, 'userMessageTextColor', 'Text Color')}
+            {textField(
+                userMessageAvatarSrc,
+                'userMessageAvatarSrc',
+                'Avatar Link',
+                'string',
+                `https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png`
+            )}
+            {booleanField(userMessageShowAvatar, 'userMessageShowAvatar', 'Show Avatar')}
+
+            {/*TEXT Input*/}
+            <Typography variant='h4' sx={{ mb: 1, mt: 2 }}>
+                Text Input
+            </Typography>
+            {colorField(textInputBackgroundColor, 'textInputBackgroundColor', 'Background Color')}
+            {colorField(textInputTextColor, 'textInputTextColor', 'Text Color')}
+            {textField(textInputPlaceholder, 'textInputPlaceholder', 'TextInput Placeholder', 'string', `Type question..`)}
+            {colorField(textInputSendButtonColor, 'textInputSendButtonColor', 'TextIntput Send Button Color')}
+
+            <>
+                <Typography variant='h4' sx={{ mb: 1, mt: 2 }}>
+                    Render HTML
+                </Typography>
                 {booleanField(renderHTML, 'renderHTML', 'Render HTML on the chat')}
-                {isSessionMemory &&
-                    booleanField(generateNewSession, 'generateNewSession', 'Start new session when chatbot link is opened or refreshed')}
-            </Card>
+            </>
 
-            <Card sx={{ borderColor: theme.palette.primary[200] + 75, p: 3, mt: 2 }} variant='outlined'>
-                <Stack sx={{ mt: 1, mb: 2, alignItems: 'center' }} direction='row' spacing={2}>
-                    <Typography variant='h4'>Bot Message</Typography>
-                </Stack>
-                {colorField(botMessageBackgroundColor, 'botMessageBackgroundColor', 'Background Color')}
-                {colorField(botMessageTextColor, 'botMessageTextColor', 'Text Color')}
-                {textField(
-                    botMessageAvatarSrc,
-                    'botMessageAvatarSrc',
-                    'Avatar Link',
-                    'string',
-                    `https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/parroticon.png`
-                )}
-                {booleanField(botMessageShowAvatar, 'botMessageShowAvatar', 'Show Avatar')}
-            </Card>
+            {/*Session Memory Input*/}
+            {isSessionMemory && (
+                <>
+                    <Typography variant='h4' sx={{ mb: 1, mt: 2 }}>
+                        Session Memory
+                    </Typography>
+                    {booleanField(generateNewSession, 'generateNewSession', 'Start new session when chatbot link is opened or refreshed')}
+                </>
+            )}
 
-            <Card sx={{ borderColor: theme.palette.primary[200] + 75, p: 3, mt: 2 }} variant='outlined'>
-                <Stack sx={{ mt: 1, mb: 2, alignItems: 'center' }} direction='row' spacing={2}>
-                    <Typography variant='h4'>User Message</Typography>
-                </Stack>
-                {colorField(userMessageBackgroundColor, 'userMessageBackgroundColor', 'Background Color')}
-                {colorField(userMessageTextColor, 'userMessageTextColor', 'Text Color')}
-                {textField(
-                    userMessageAvatarSrc,
-                    'userMessageAvatarSrc',
-                    'Avatar Link',
-                    'string',
-                    `https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png`
-                )}
-                {booleanField(userMessageShowAvatar, 'userMessageShowAvatar', 'Show Avatar')}
-            </Card>
-
-            <Card sx={{ borderColor: theme.palette.primary[200] + 75, p: 3, mt: 2 }} variant='outlined'>
-                <Stack sx={{ mt: 1, mb: 2, alignItems: 'center' }} direction='row' spacing={2}>
-                    <Typography variant='h4'>Text Input</Typography>
-                </Stack>
-                {colorField(textInputBackgroundColor, 'textInputBackgroundColor', 'Background Color')}
-                {colorField(textInputTextColor, 'textInputTextColor', 'Text Color')}
-                {textField(textInputPlaceholder, 'textInputPlaceholder', 'TextInput Placeholder', 'string', `Type question..`)}
-                {colorField(textInputSendButtonColor, 'textInputSendButtonColor', 'TextIntput Send Button Color')}
-            </Card>
-
-            <StyledButton
-                fullWidth
-                style={{
-                    borderRadius: 20,
-                    marginBottom: 10,
-                    marginTop: 10,
-                    background: 'linear-gradient(45deg, #673ab7 30%, #1e88e5 90%)'
-                }}
-                variant='contained'
-                onClick={() => onSave()}
-            >
+            <StyledButton style={{ marginBottom: 10, marginTop: 10 }} variant='contained' onClick={() => onSave()}>
                 Save Changes
             </StyledButton>
             <Popover
