@@ -1,29 +1,27 @@
 // assets
 import {
-    IconUsersGroup,
-    IconHierarchy,
-    IconBuildingStore,
-    IconKey,
-    IconTool,
-    IconLock,
-    IconRobot,
-    IconVariable,
-    IconFiles,
-    IconListCheck
+    IconUsers,
+    IconGitBranch,
+    IconTemplate,
+    IconApiApp,
+    IconTools,
+    IconPlugConnected,
+    IconBrain,
+    IconBraces,
+    IconDatabase
 } from '@tabler/icons-react'
 
 // constant
 const icons = {
-    IconListCheck,
-    IconUsersGroup,
-    IconHierarchy,
-    IconBuildingStore,
-    IconKey,
-    IconTool,
-    IconLock,
-    IconRobot,
-    IconVariable,
-    IconFiles
+    IconUsersGroup: IconUsers,
+    IconHierarchy: IconGitBranch,
+    IconBuildingStore: IconTemplate,
+    IconKey: IconApiApp,
+    IconTool: IconTools,
+    IconLock: IconPlugConnected,
+    IconRobot: IconBrain,
+    IconVariable: IconBraces,
+    IconFiles: IconDatabase
 }
 
 // ==============================|| DASHBOARD MENU ITEMS ||============================== //
@@ -35,7 +33,7 @@ const dashboard = {
     children: [
         {
             id: 'chatflows',
-            title: 'Chatflows',
+            title: 'Chatbots    ',
             type: 'item',
             url: '/chatflows',
             icon: icons.IconHierarchy,
@@ -43,23 +41,16 @@ const dashboard = {
         },
         {
             id: 'agentflows',
-            title: 'Agentflows',
+            title: 'Agent Squad',
             type: 'item',
             url: '/agentflows',
             icon: icons.IconUsersGroup,
-            breadcrumbs: true
-        },
-        {
-            id: 'executions',
-            title: 'Executions',
-            type: 'item',
-            url: '/executions',
-            icon: icons.IconListCheck,
-            breadcrumbs: true
+            breadcrumbs: true,
+            isBeta: false
         },
         {
             id: 'assistants',
-            title: 'Assistants',
+            title: 'Agents',
             type: 'item',
             url: '/assistants',
             icon: icons.IconRobot,
@@ -67,7 +58,7 @@ const dashboard = {
         },
         {
             id: 'marketplaces',
-            title: 'Marketplaces',
+            title: 'Templates',
             type: 'item',
             url: '/marketplaces',
             icon: icons.IconBuildingStore,
@@ -83,7 +74,7 @@ const dashboard = {
         },
         {
             id: 'credentials',
-            title: 'Credentials',
+            title: 'Integrations',
             type: 'item',
             url: '/credentials',
             icon: icons.IconLock,

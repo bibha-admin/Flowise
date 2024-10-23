@@ -254,11 +254,11 @@ const CanvasHeader = ({ chatflow, isAgentCanvas, isAgentflowV2, handleSaveFlow, 
                                     ...theme.typography.mediumAvatar,
                                     transition: 'all .2s ease-in-out',
                                     background: theme.palette.secondary.light,
-                                    color: theme.palette.secondary.dark,
-                                    '&:hover': {
-                                        background: theme.palette.secondary.dark,
-                                        color: theme.palette.secondary.light
-                                    }
+                                    color: theme.palette.secondary.dark
+                                    // '&:hover': {
+                                    //     background: theme.palette.secondary.dark,
+                                    //     color: theme.palette.secondary.light
+                                    // }
                                 }}
                                 color='inherit'
                                 onClick={() => {
@@ -298,11 +298,11 @@ const CanvasHeader = ({ chatflow, isAgentCanvas, isAgentflowV2, handleSaveFlow, 
                                                 transition: 'all .2s ease-in-out',
                                                 ml: 1,
                                                 background: theme.palette.secondary.light,
-                                                color: theme.palette.secondary.dark,
-                                                '&:hover': {
-                                                    background: theme.palette.secondary.dark,
-                                                    color: theme.palette.secondary.light
-                                                }
+                                                color: theme.palette.secondary.dark
+                                                // '&:h over': {
+                                                //     background: theme.palette.secondary.dark,
+                                                //     color: theme.palette.secondary.light
+                                                // }
                                             }}
                                             color='inherit'
                                             onClick={() => setEditingFlowName(true)}
@@ -409,11 +409,11 @@ const CanvasHeader = ({ chatflow, isAgentCanvas, isAgentflowV2, handleSaveFlow, 
                                 ...theme.typography.mediumAvatar,
                                 transition: 'all .2s ease-in-out',
                                 background: theme.palette.canvasHeader.saveLight,
-                                color: theme.palette.canvasHeader.saveDark,
-                                '&:hover': {
-                                    background: theme.palette.canvasHeader.saveDark,
-                                    color: theme.palette.canvasHeader.saveLight
-                                }
+                                color: theme.palette.canvasHeader.saveDark
+                                // '&:hover': {
+                                //     background: theme.palette.canvasHeader.saveDark,
+                                //     color: theme.palette.canvasHeader.saveLight
+                                // }
                             }}
                             color='inherit'
                             onClick={onSaveChatflowClick}
@@ -429,11 +429,11 @@ const CanvasHeader = ({ chatflow, isAgentCanvas, isAgentflowV2, handleSaveFlow, 
                                 ...theme.typography.mediumAvatar,
                                 transition: 'all .2s ease-in-out',
                                 background: theme.palette.canvasHeader.settingsLight,
-                                color: theme.palette.canvasHeader.settingsDark,
-                                '&:hover': {
-                                    background: theme.palette.canvasHeader.settingsDark,
-                                    color: theme.palette.canvasHeader.settingsLight
-                                }
+                                color: theme.palette.canvasHeader.settingsDark
+                                // '&:hover': {
+                                //     background: theme.palette.canvasHeader.settingsDark,
+                                //     color: theme.palette.canvasHeader.settingsLight
+                                // }
                             }}
                             onClick={() => setSettingsOpen(!isSettingsOpen)}
                         >

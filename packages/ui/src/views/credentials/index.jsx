@@ -232,9 +232,8 @@ const Credentials = () => {
                         <ViewHeader
                             onSearchChange={onSearchChange}
                             search={true}
-                            searchPlaceholder='Search Credentials'
-                            title='Credentials'
-                            description='API keys, tokens, and secrets for 3rd party integrations'
+                            searchPlaceholder='Search Integrations'
+                            title='Integrations'
                         >
                             <StyledButton
                                 variant='contained'
@@ -254,7 +253,7 @@ const Credentials = () => {
                                         alt='CredentialEmptySVG'
                                     />
                                 </Box>
-                                <div>No Credentials Yet</div>
+                                <div>No Integrations Yet</div>
                             </Stack>
                         ) : (
                             <TableContainer
