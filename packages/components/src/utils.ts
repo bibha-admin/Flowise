@@ -580,7 +580,7 @@ const decryptCredentialData = async (encryptedData: string): Promise<ICommonObje
         return JSON.parse(decryptedDataStr)
     } catch (e) {
         console.error(e)
-        throw new Error('Credentials could not be decrypted.')
+        throw new Error('Integrations could not be decrypted.')
     }
 }
 
