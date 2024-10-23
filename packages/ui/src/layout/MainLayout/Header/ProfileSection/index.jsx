@@ -53,11 +53,11 @@ import { getErrorMessage } from '@/utils/errorHandler'
 import { useNavigate } from 'react-router-dom'
 
 const dataToExport = [
-    'Agentflows',
+    'Agents',
     'Assistants Custom',
     'Assistants OpenAI',
     'Assistants Azure',
-    'Chatflows',
+    'Chatbots',
     'Chat Messages',
     'Chat Feedbacks',
     'Custom Templates',
@@ -255,11 +255,12 @@ const ProfileSection = ({ username, handleLogout }) => {
 
     const onExport = (data) => {
         const body = {}
-        if (data.includes('Agentflows')) body.agentflow = true
+        if (data.includes('Chatbots')) body.chatflow = true
+        if (data.includes('Agent Squad')) body.agentflow = true
+        if (data.includes('Agents')) body.assistant = true
         if (data.includes('Assistants Custom')) body.assistantCustom = true
         if (data.includes('Assistants OpenAI')) body.assistantOpenAI = true
         if (data.includes('Assistants Azure')) body.assistantAzure = true
-        if (data.includes('Chatflows')) body.chatflow = true
         if (data.includes('Chat Messages')) body.chat_message = true
         if (data.includes('Chat Feedbacks')) body.chat_feedback = true
         if (data.includes('Custom Templates')) body.custom_template = true
@@ -341,11 +342,11 @@ const ProfileSection = ({ username, handleLogout }) => {
                         ...theme.typography.mediumAvatar,
                         transition: 'all .2s ease-in-out',
                         background: theme.palette.secondary.light,
-                        color: theme.palette.secondary.dark,
-                        '&:hover': {
-                            background: theme.palette.secondary.dark,
-                            color: theme.palette.secondary.light
-                        }
+                        color: theme.palette.secondary.dark
+                        // '&:hover': {
+                        //     background: theme.palette.secondary.dark,
+                        //     color: theme.palette.secondary.light
+                        // }
                     }}
                     onClick={handleToggle}
                     color='inherit'
@@ -425,7 +426,7 @@ const ProfileSection = ({ username, handleLogout }) => {
                                                     <ListItemText primary={<Typography variant='body2'>Import</Typography>} />
                                                 </ListItemButton>
                                                 <input ref={inputRef} type='file' hidden onChange={fileChange} accept='.json' />
-                                                <ListItemButton
+                                                {/* <ListItemButton
                                                     sx={{ borderRadius: `${customization.borderRadius}px` }}
                                                     onClick={() => {
                                                         setOpen(false)
@@ -436,7 +437,7 @@ const ProfileSection = ({ username, handleLogout }) => {
                                                         <IconInfoCircle stroke={1.5} size='1.3rem' />
                                                     </ListItemIcon>
                                                     <ListItemText primary={<Typography variant='body2'>About Flowise</Typography>} />
-                                                </ListItemButton>
+                                                </ListItemButton> */}
                                                 {localStorage.getItem('username') && localStorage.getItem('password') && (
                                                     <ListItemButton
                                                         sx={{ borderRadius: `${customization.borderRadius}px` }}
